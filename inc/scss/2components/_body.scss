@@ -238,12 +238,13 @@ nav {
 		}
 	}
 	.brand-device {
-		width: 100vw;
-		height: 100vh;
-		animation: none;
-		transform-origin: bottom;
+		width: 150vw;
+		height: 150vh;
 		top: 0;
 		z-index: 1;
+		left: -25%;
+		transform-origin: 50% 50%;
+		animation: slow-rotate 270s infinite linear reverse;
 	}
 }
 
@@ -600,7 +601,9 @@ nav {
 	position: absolute;
 	background: url(inc/img/brand-device.svg);
 	filter: brightness(.8);
-	background-size: cover;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center center;
 	animation: slow-rotate 60s infinite linear;
 	opacity: 0.75;
 }
