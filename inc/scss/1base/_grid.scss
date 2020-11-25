@@ -1,0 +1,13 @@
+/*! == GRID == */
+/*=====MASTER GRID RULES=====*/
+
+.container {
+  position: relative;
+  display: grid;
+  max-width: calc(#{$container-width} - #{$container-gutter__doubled});
+  margin: 0 auto;
+  padding: 0 $container-gutter;
+  &.two-cols {
+    grid-template-columns:$page-split;  
+  }
+}

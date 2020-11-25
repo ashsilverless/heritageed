@@ -1,0 +1,160 @@
+/*! == MODIFIERS == */
+
+/* Position */
+
+/* 
+Loop to generate margins and padding based on ems.
+Syntax is mt3 = margin top 3em, pl5 = padding left 5em
+*/
+
+$distance: (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20); // Amount string.
+$sides: (top, bottom, left, right); // Sides var
+
+@each $amount in $distance {
+    @each $side in $sides {
+        .m#{str-slice($side, 0, 1)}#{$amount} {
+            margin-#{$side}: #{$amount}em ;
+        }
+        .p#{str-slice($side, 0, 1)}#{$amount} {
+            padding-#{$side}: #{$amount}em;
+        }
+    }
+}
+
+.sticky {
+    position: sticky;
+    top:1rem;
+}
+
+/* Height */
+
+$height: (0, 25, 50, 75, 100); // Amount string.
+
+@each $amount in $height {
+    .h#{$amount} {
+        height: #{$amount}vh;
+    }
+}
+
+/* Animation */
+
+@-webkit-keyframes pulse {
+    0% {
+       opacity: 1.0;
+    }
+    50% {
+       opacity: 0.1;
+    }
+    100% {
+       opacity: 1.0;
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(359deg);
+    }
+}
+
+.slide-up {
+    transform: translateY(50px);
+    opacity: 0;
+    transition: all 1s ease;
+    
+    &.active {
+        transform:translateY(0);
+        opacity: 1;
+    }
+}
+
+.slide-down {
+    transform: translateY(-50px);
+    opacity: 0;
+    transition: all 1s ease;
+    
+    &.active {
+        transform:translateY(0);
+        opacity: 1;
+    }
+}
+
+.slide-right {
+    transform: translate(-100px, 50px);
+    opacity: 0;
+    transition: all 2s ease;
+    
+    &.active {
+        transform:translate(0, 0);
+        opacity: 1;
+    }
+}
+
+.slow-fade {
+    opacity:0;
+    transition:opacity 3s ease;
+    
+    &.active {
+        opacity:1;
+    }
+}
+
+
+#logo {
+    width:10rem;
+}
+.silverless {
+    text-align: center;
+    margin-top: -5px;
+
+    #logo {
+
+        path{
+            fill: $color_brand_green;
+        }
+    }
+
+    #silverless {
+        opacity:0.6;
+        transition:opacity 0.5s ease-in-out;
+
+        path {
+            fill: $color_brand_green;
+        }
+    }
+
+    #created {
+        opacity:0;
+        transform: translateY(50px);
+        transition: 1s transform ease, 2s opacity ease;
+
+        path {
+            fill: $color_brand_dark-green;
+        }
+    }
+
+    &:hover {
+        cursor:pointer;
+
+        #silverless {
+            opacity:0.8;
+        }
+
+        #created {
+              opacity:0.8;
+              transform: translateY(0);
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
