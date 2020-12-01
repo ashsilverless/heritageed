@@ -6,6 +6,11 @@
  */
 get_header();?>
 
+<div class="mobile-nav-trigger">
+    <a href="" class="mobile-trigger"><i class="fas fa-bars"></i></a>
+    <a href="#contact" class="book-now-cta">Book Now</a>
+</div>
+
 <div class="mobile-nav">
     <a href="#" class="close-mobile-nav"><i class="fas fa-times"></i></a>
     <div class="mobile-nav__inner">
@@ -15,7 +20,7 @@ get_header();?>
     </div>
 </div>
 
-<div class="nav-overlay">
+<div class="nav-overlay desktop">
     <a href="" class="nav-trigger"><i class="fas fa-bars"></i></a>
     <nav>
     <?php get_template_part('template-parts/nav-top-row');?>
@@ -24,12 +29,8 @@ get_header();?>
     <a href="#contact" class="book-now-cta">Book Now</a>
 </div>
 
+
 <div class="top-section">
-    <!--<nav>
-        <?php get_template_part('template-parts/nav-top-row');?>
-        <?php get_template_part('template-parts/nav-bottom-row');?>
-        <a href="#contact" class="book-now-cta">Book Now</a>
-    </nav>-->
     <div class="hero">
         <div class="container">
                 <?php get_template_part ('inc/img/hed-logo');?>
@@ -98,8 +99,9 @@ get_header();?>
 <section class="process" id="process">
     <h2 class="heading heading__2 heading__700">The Process</h2>
 </section>
+
 <section>
-    <div class="container">
+    <div class="process container">
         <div class="process-carousel owl-carousel">
             <?php if( have_rows('process') ):
             $slideNumber = 1;
@@ -115,6 +117,7 @@ get_header();?>
         </div>  
     </div>
 </section>
+
 <section class="what-they-say" id="say">
     <div class="container">
         <h2 class="heading heading__2 heading__700">What They Say</h2>

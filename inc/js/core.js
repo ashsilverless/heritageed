@@ -41,24 +41,38 @@ jQuery(document).ready(function($) {
 		$('.toggle-faq .item .answer').slideUp();
 		$(this).closest('.item').find('.answer').slideDown();
 	});
-	
-	$('.process-carousel').owlCarousel({
-		center: true,
-		items:3,
-		loop:false,
-		margin:40,
-		responsive:{
-			600:{
-				items:3
-			}
+
+	if ($(window).width() > 960) {
+		$('.process-carousel').owlCarousel({
+			   center: true,
+			   items:2,
+			   loop:false,
+			   margin:40,
+			   responsive:{
+				   600:{
+					   items:2
+				   }
+			   }
+		   });
 		}
-	});
+		else {
+		$('.process-carousel').owlCarousel({
+			center: false,
+			items:1,
+			loop:false,
+			margin:40,
+			stagePadding: 50,
+		   });
+		}
 
 	$('.testimonial-carousel').owlCarousel({
 		items: 1,
 		loop:true,
 		margin:40,
 		responsive:{
+			0:{
+				items:1
+			},
 			600:{
 				items:1
 			}
@@ -66,7 +80,7 @@ jQuery(document).ready(function($) {
 	});
 	
 	
-	$("nav a, footer a, .book-now-cta").on('click', function(e) {
+	$("nav a, footer a, .book-now-cta, .mobile-nav__inner a").on('click', function(e) {
 		if (this.hash !== "") {
 		  e.preventDefault();
 		  var hash = this.hash;
@@ -79,6 +93,7 @@ jQuery(document).ready(function($) {
 			  //
 		  }
 		  var desiredHeight = $('.nav-overlay nav').height() + 40;
+		  $('.mobile-nav').removeClass('active');
 		  $('html, body').animate({
 			scrollTop: $(hash).offset().top - desiredHeight
 		  }, 800, function(){
@@ -112,5 +127,14 @@ jQuery(document).ready(function($) {
 				.removeClass('contains-content');
 		}
 	});
+
+	$(".mobile-trigger").on('click', function(e) {
+		e.preventDefault();
+		$('.mobile-nav').addClass('active');
+	});	
 	
+	$(".close-mobile-nav").on('click', function(e) {
+		e.preventDefault();
+		$('.mobile-nav').removeClass('active');
+	});	
 }); //Don't remove ---- end of jQuery wrapper

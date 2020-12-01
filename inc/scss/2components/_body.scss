@@ -18,15 +18,17 @@ $hero-overlap: 10rem;
 .mobile-nav {
 	//display: none;
 	position: fixed;
-	top: -100%;
+	top: -100vh;
 	left: 1rem;
 	display: grid;
 	align-items: center;
 	justify-content: center;
 	width: calc(100% - 2rem);
-	min-height: 100vh;
+	height: calc(100vh - 2rem);
+	min-height: calc(100vh - 2rem);
+	border-bottom: 1rem solid white;
 	background: $color_brand_dark-green;
-	z-index: 500;
+	z-index: 1500;
 	transition: all .5s ease;
 	.close-mobile-nav {
 		position: absolute;
@@ -55,8 +57,11 @@ $hero-overlap: 10rem;
 		}
 	}
 	a {
-		font-size: 1.2rem;
+		font-size: 1.5rem;
 		color: white;
+	}
+	&.active {
+		top: 1rem;
 	}
 }
 
@@ -129,6 +134,37 @@ $hero-overlap: 10rem;
 	}
 }
 
+.mobile-nav-trigger {
+	position: fixed;
+	top: 0;
+	width: calc(100% - 2rem);
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	border-top: 1rem solid white;
+	background: white;
+	z-index: 1000;
+	.mobile-trigger {
+		grid-column: 1/2;
+		font-size: 2rem;
+	}
+	.book-now-cta {
+		grid-column: 2/3;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		margin-left: 1rem;
+		margin-bottom: 1rem;
+		padding: 1rem .5rem;
+		text-transform: uppercase;
+		font-weight: 400;
+		background: $color_brand_green;
+		color: white;
+		z-index: 500;
+	}
+}
+
+
 .scrolled {
 	.nav-overlay {
 		&:before {
@@ -195,7 +231,7 @@ nav {
 .hero {
 	position: relative;
 	height: 100%;
-	//overflow: hidden;
+	overflow: hidden;
 	&:after {
 		content:'';
 		position: absolute;
@@ -271,6 +307,7 @@ nav {
 		text-transform: uppercase;
 		font-weight: 900;
 		color: $color_brand_green;
+		z-index: 20;
 		i {
 			margin-left: 1rem;
 		}
@@ -292,16 +329,22 @@ nav {
 }
 .intro-text {
 	position: relative;
-	padding: 3rem 2rem 3rem 40%;
+	padding: 0rem 2rem 0rem 40%;
 	text-transform: uppercase;
 	font-weight: 500;
 	z-index: 10;
+	height: 100%;
+	display: flex;
+	align-items: center;
 	&.more {
 		display: none;
 		padding: 2rem;
 		text-transform: none;
 		font-weight: 300;
 		overflow: hidden;
+		p:first-of-type {
+			font-weight: 500;
+		}
 	}
 }
 
@@ -402,7 +445,7 @@ nav {
 			content: "";
 			position: absolute;
 			top: .25rem;
-			right: -5.999999rem;
+			right: -5.95rem; //Mystery meat
 			height: calc(100% - .5rem);
 			width: 6rem;
 			background: $color_brand_dark-green;
@@ -432,6 +475,13 @@ nav {
 			}
 		}
 	}
+}
+
+.process.container {
+	width: calc(100% - 1rem);
+	max-width: calc(100% - 1rem);
+	padding: 0;
+	overflow: hidden;
 }
 
 .what-they-say {
